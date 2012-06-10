@@ -14,6 +14,8 @@ namespace Sylius\Bundle\SalesBundle\Controller\Backend;
 use Sylius\Bundle\SalesBundle\EventDispatcher\Event\FilterOrderEvent;
 use Sylius\Bundle\SalesBundle\EventDispatcher\SyliusSalesEvents;
 use Sylius\Bundle\SalesBundle\Form\Type\OrderType;
+use Sylius\Bundle\SalesBundle\Model\OrderInterface;
+use Sylius\Bundle\SalesBundle\Model\ItemInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -248,6 +250,24 @@ class OrderController extends ContainerAware
     }
 
     /**
+     * Deletes order item.
+     *
+     * @param mixed $id
+     *
+     * @return Response
+     */
+    public function deleteItemAction($id)
+    {
+        $item = $this->findOrderItemOr404($id);
+
+        $this->container->get('event_dispatcher')->dispatch(SyliusSalesEvents::ORDER_UPDATE, new FilterOrderEvent($item->getOrder()));
+        $this->container->get('sylius_sales.manager.item')->removeItem($item);
+        $this->container->get('session')->setFlash('success', 'sylius_sales.flash.order_item.deleted');
+
+        return $this->redirectToReferer();
+    }
+
+    /**
      * Redirects to referer if any, points to order list otherwise.
      *
      * @return RedirectResponse
@@ -288,6 +308,25 @@ class OrderController extends ContainerAware
         }
 
         return $order;
+    }
+
+    /**
+     * Looks for an order item with given id, throws not found exception when
+     * unsuccesful.
+     *
+     * @param mixed $id
+     *
+     * @throws NotFoundHttpException
+     *
+     * @return ItemInterface
+     */
+    protected function findOrderItemOr404($id)
+    {
+        if (!$item = $this->container->get('sylius_sales.manager.item')->findItem($id)) {
+            throw new NotFoundHttpException(sprintf('Order item with id "%s" does not exist', $id));
+        }
+
+        return $item;
     }
 
     /**

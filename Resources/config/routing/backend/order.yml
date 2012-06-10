@@ -36,3 +36,7 @@ sylius_sales_backend_order_open:
 sylius_sales_backend_order_show:
     pattern: /{id}
     defaults: { _controller: sylius_sales.controller.backend.order:showAction }
+
+sylius_sales_backend_order_item_delete:
+    pattern: /item/{id}/delete
+    defaults: { _controller: sylius_sales.controller.backend.order:deleteItemAction }
