@@ -64,18 +64,18 @@ class ItemManager extends BaseItemManager
     /**
      * {@inheritdoc}
      */
-    public function persistItem(ItemInterface $order)
+    public function persistItem(ItemInterface $item)
     {
-        $this->entityManager->persist($order);
+        $this->entityManager->persist($item);
         $this->entityManager->flush();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function removeItem(ItemInterface $order)
+    public function removeItem(ItemInterface $item)
     {
-        $this->entityManager->remove($order);
+        $this->entityManager->remove($item);
         $this->entityManager->flush();
     }
 
