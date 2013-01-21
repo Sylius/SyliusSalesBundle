@@ -1,0 +1,8 @@
+<h1>Creating order <small>Build new order</small></h1>
+
+<form action="{{ path('sylius_sales_order_create') }}" method="post" novalidate>
+    {% include 'SyliusSalesBundle:Order:_form.html.twig' %}
+    <div class="form-actions">
+       <input type="submit" value="create order" class="btn btn-primary btn-large" />
+    </div>
+</form>

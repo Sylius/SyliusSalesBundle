@@ -1,0 +1,8 @@
+<h1>Updating order <small>Modify existing order</small></h1>
+
+<form action="{{ path('sylius_sales_order_update', {'id': order.id}) }}" method="post" novalidate>
+    {% include 'SyliusSalesBundle:Order:_form.html.twig' %}
+    <div class="form-actions">
+       <input type="submit" value="save changes" class="btn btn-primary btn-large" />
+    </div>
+</form>

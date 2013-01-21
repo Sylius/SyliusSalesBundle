@@ -1,0 +1,50 @@
+{% macro list(orders) %}
+
+{% if orders|length > 0 %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{ sylius_resource_sort('id', '#id') }}</th>
+                <th>{{ sylius_resource_sort('total') }}</th>
+                <th>{{ sylius_resource_sort('updatedAt', 'last updated') }}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.total }} &euro;</td>
+                    <td>{{ order.createdAt|date }}</td>
+                    <td>
+                        <div class="btn-group pull-right">
+                            <a href="{{ path('sylius_sales_order_show', {'id': order.id}) }}" class="btn">
+                                <i class="icon-book"></i> details
+                            </a>
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ path('sylius_sales_order_update', {'id': order.id}) }}">
+                                         <i class="icon-pencil"></i> update
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('sylius_sales_order_delete', {'id': order.id}) }}">
+                                         <i class="icon-trash"></i> delete
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div class="alert alert-info">
+        <h4 class="alert-heading">Information</h4>
+        There are no orders to display
+    </div>
+{% endif %}
+
+{% endmacro %}
