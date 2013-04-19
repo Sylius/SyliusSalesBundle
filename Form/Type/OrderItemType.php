@@ -46,11 +46,11 @@ class OrderItemType extends AbstractType
     {
         $builder
             ->add('quantity', 'integer', array(
-                'label' => 'sylius.form.order_item.quantity'
+                'label' => 'sylius.backend.order_item.quantity'
             ))
             ->add('unitPrice', 'money', array(
                 'divisor' => 100,
-                'label'   => 'sylius.form.order_item.unit_price'
+                'label'   => 'sylius.backend.order_item.unit_price'
             ))
         ;
     }
