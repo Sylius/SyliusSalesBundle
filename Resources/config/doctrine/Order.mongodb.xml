@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mongo-mapping xmlns="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
+                    http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd"
+      xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
+
+    <mapped-superclass name="Sylius\Bundle\SalesBundle\Document\Order">
+        <field fieldName="number" name="number" type="string" />
+        <field fieldName="confirmed" name="confirmed" type="boolean" />
+        <field fieldName="itemsTotal" name="itemsTotal" type="int" />
+        <field fieldName="adjustmentsTotal" name="adjustments_total" type="int" />
+        <field fieldName="total" name="total" type="int" />
+        <field fieldName="createdAt" name="createdAt" type="date">
+            <gedmo:timestampable on="create"/>
+        </field>
+        <field fieldName="updatedAt" name="updatedAt" type="date">
+            <gedmo:timestampable on="update"/>
+        </field>
+    </mapped-superclass>
+
+</doctrine-mongo-mapping>
