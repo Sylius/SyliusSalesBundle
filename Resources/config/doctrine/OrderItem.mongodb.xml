@@ -9,10 +9,10 @@
     <mapped-superclass name="Sylius\Bundle\SalesBundle\Document\OrderItem">
         <reference-many fieldName="order" target-document="Sylius\Bundle\SalesBundle\Model\OrderInterface" inversed-by="items" />
         <reference-one fieldName="sellable" target-document="Sylius\Bundle\SalesBundle\Model\SellableInterface" />
-        <field fieldName="quantity" name="quantity" type="integer" />
-        <field fieldName="unitPrice" name="unitPrice" type="integer" />
-        <field fieldName="adjustmentsTotal" name="adjustmentsTotal" type="integer" />
-        <field fieldName="total" name="total" type="integer" />
+        <field fieldName="quantity" name="quantity" type="int" />
+        <field fieldName="unitPrice" name="unitPrice" type="int" />
+        <field fieldName="adjustmentsTotal" name="adjustmentsTotal" type="int" />
+        <field fieldName="total" name="total" type="int" />
     </mapped-superclass>
 
 </doctrine-mongo-mapping>
