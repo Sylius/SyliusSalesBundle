@@ -20,9 +20,9 @@
         <parameter key="sylius.model.order_item.class">Sylius\Bundle\SalesBundle\Document\DefaultOrderItem</parameter>
         <parameter key="sylius.model.adjustment.class">Sylius\Bundle\SalesBundle\Document\DefaultAdjustment</parameter>
 
-        <parameter key="sylius.repository.order.class">Sylius\Bundle\ResourceBundle\Doctrine\ODM\MongodB\documentRepository</parameter>
-        <parameter key="sylius.repository.order_item.class">Sylius\Bundle\ResourceBundle\Doctrine\ODM\MongodB\documentRepository</parameter>
-        <parameter key="sylius.repository.adjustment.class">Sylius\Bundle\ResourceBundle\Doctrine\ODM\MongodB\documentRepository</parameter>
+        <parameter key="sylius.repository.order.class">Sylius\Bundle\ResourceBundle\Doctrine\ODM\MongodB\DocumentRepository</parameter>
+        <parameter key="sylius.repository.order_item.class">Sylius\Bundle\ResourceBundle\Doctrine\ODM\MongodB\DocumentRepository</parameter>
+        <parameter key="sylius.repository.adjustment.class">Sylius\Bundle\ResourceBundle\Doctrine\ODM\MongodB\DocumentRepository</parameter>
     </parameters>
 
     <services>
@@ -34,9 +34,10 @@
             </argument>
             <argument type="service">
                 <service
-                    factory-service="sylius.manager.order"
+                    factory-service="doctrine_mongodb.odm.default_document_manager"
                     factory-method="getClassMetadata"
-                    class="Doctrine\ORM\Mapping\ClassMetadata"
+                    class="Doctrine\ODM\MongoDB\Mapping\ClassMetadata"
+                    public="false"
                 >
                     <argument>%sylius.model.order.class%</argument>
                 </service>
