@@ -20,9 +20,9 @@
         <parameter key="sylius.model.order_item.class">Sylius\Bundle\SalesBundle\Document\DefaultOrderItem</parameter>
         <parameter key="sylius.model.adjustment.class">Sylius\Bundle\SalesBundle\Document\DefaultAdjustment</parameter>
 
-        <parameter key="sylius.repository.order.class">Sylius\Bundle\ResourceBundle\Doctrine\ODM\MongodB\DocumentRepository</parameter>
-        <parameter key="sylius.repository.order_item.class">Sylius\Bundle\ResourceBundle\Doctrine\ODM\MongodB\DocumentRepository</parameter>
-        <parameter key="sylius.repository.adjustment.class">Sylius\Bundle\ResourceBundle\Doctrine\ODM\MongodB\DocumentRepository</parameter>
+        <parameter key="sylius.repository.order.class">Sylius\Bundle\ResourceBundle\Doctrine\ODM\MongoDB\DocumentRepository</parameter>
+        <parameter key="sylius.repository.order_item.class">Sylius\Bundle\ResourceBundle\Doctrine\ODM\MongoDB\DocumentRepository</parameter>
+        <parameter key="sylius.repository.adjustment.class">Sylius\Bundle\ResourceBundle\Doctrine\ODM\MongoDB\DocumentRepository</parameter>
     </parameters>
 
     <services>
