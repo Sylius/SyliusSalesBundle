@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="029f683405e37540caa31fe5cd2aa065" resname="sylius.order_item.quantity.integer">
+        <source>sylius.order_item.quantity.integer</source>
+        <target>Quantity value should be of type {{ type }}.</target>
+      </trans-unit>
+      <trans-unit id="6792abf1f2d18d11c1e7c0c385f68d26" resname="sylius.order_item.quantity.min">
+        <source>sylius.order_item.quantity.min</source>
+        <target>Quantity value should be {{ limit }} or more.</target>
+      </trans-unit>
+      <trans-unit id="b49f1ff734538c9be806df8742dc1fde" resname="sylius.order_item.quantity.not_blank">
+        <source>sylius.order_item.quantity.not_blank</source>
+        <target>Quantity value should not be blank.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

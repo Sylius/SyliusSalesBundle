@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="cc2c9112a1efb066e98478434307d9d4" resname="confirmation.email.message">
+        <source>confirmation.email.message</source>
+        <target>To confirm your order please visit %confirmationUrl%</target>
+      </trans-unit>
+      <trans-unit id="4bb644dda09fe175c85bbb63e16ce51f" resname="confirmation.email.subject">
+        <source>confirmation.email.subject</source>
+        <target>Thank you for your order</target>
+      </trans-unit>
+      <trans-unit id="5d6cb183378fa88f4f67f714935381f5" resname="sylius.alert.info">
+        <source>sylius.alert.info</source>
+        <target>Information</target>
+      </trans-unit>
+      <trans-unit id="0efd1c5c96bb845f928ab724543a0977" resname="sylius.form.order.items">
+        <source>sylius.form.order.items</source>
+        <target>Order items</target>
+      </trans-unit>
+      <trans-unit id="491b7bc6d58616297e631bf220b246d6" resname="sylius.form.order_item.quantity">
+        <source>sylius.form.order_item.quantity</source>
+        <target>Quantity</target>
+      </trans-unit>
+      <trans-unit id="833adaad910b83e3880ff9b14402dbbb" resname="sylius.form.order_item.unit_price">
+        <source>sylius.form.order_item.unit_price</source>
+        <target>Price</target>
+      </trans-unit>
+      <trans-unit id="5963bb6a33b7db83087c69fea19517cc" resname="sylius.order.confirmed_header">
+        <source>sylius.order.confirmed_header</source>
+        <target>Order confirmation</target>
+      </trans-unit>
+      <trans-unit id="9244b83f0da982a646249fd9e8d1572c" resname="sylius.order.confirmed_info">
+        <source>sylius.order.confirmed_info</source>
+        <target>Your order has been confirmed.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

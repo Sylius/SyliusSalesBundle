@@ -38,23 +38,20 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('driver')->isRequired()->cannotBeEmpty()->end()
                 ->scalarNode('engine')->defaultValue('twig')->end()
-            ->end()
-        ;
-
-        $this->addClassesSection($rootNode);
-
-        return $treeBuilder;
-    }
-
-    /**
-     * Adds `classes` section.
-     *
-     * @param ArrayNodeDefinition $node
-     */
-    private function addClassesSection(ArrayNodeDefinition $node)
-    {
-        $node
-            ->children()
+                ->arrayNode('confirmation')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('enabled')->defaultFalse()->end()
+                        ->scalarNode('template')->defaultValue('SyliusSalesBundle:Confirmation:email.txt.twig')->end()
+                        ->arrayNode('from_email')
+                            ->canBeUnset()
+                            ->children()
+                                ->scalarNode('address')->isRequired()->cannotBeEmpty()->end()
+                                ->scalarNode('sender_name')->isRequired()->cannotBeEmpty()->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
                 ->arrayNode('validation_groups')
                     ->addDefaultsIfNotSet()
                     ->children()
@@ -106,5 +103,7 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end()
         ;
+
+        return $treeBuilder;
     }
 }
