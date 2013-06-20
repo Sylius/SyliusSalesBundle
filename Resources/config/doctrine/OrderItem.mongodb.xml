@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<doctrine-mongo-mapping xmlns="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
+                    http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd"
+      xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
+
+    <mapped-superclass name="Sylius\Bundle\SalesBundle\Document\OrderItem">
+        <reference-many fieldName="order" target-document="Sylius\Bundle\SalesBundle\Model\OrderInterface" inversed-by="items" />
+        <reference-one fieldName="sellable" target-document="Sylius\Bundle\SalesBundle\Model\SellableInterface" />
+        <field fieldName="quantity" name="quantity" type="int" />
+        <field fieldName="unitPrice" name="unitPrice" type="int" />
+        <field fieldName="adjustmentsTotal" name="adjustmentsTotal" type="int" />
+        <field fieldName="total" name="total" type="int" />
+    </mapped-superclass>
+
+</doctrine-mongo-mapping>
