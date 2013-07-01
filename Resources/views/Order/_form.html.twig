@@ -1,0 +1,31 @@
+<fieldset>
+    {{ form_errors(form) }}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>quantity</th>
+                <th><span class="pull-right">unit price</span></th>
+                <th><span class="pull-right">line total</span></th>
+            </tr>
+        </thead>
+        <tbody id="sylius-sales-order-items" data-prototype="{{ form_row(form.items.vars.prototype)|e }}" class="collection-container">
+            {% for itemForm in form.items %}
+                {{ form_row(itemForm) }}
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                    <a class="btn btn-success collection-add-btn" data-collection="sylius-sales-order-items">add item</a>
+                </td>
+                <td>
+                    <div class="input-append pull-right">
+                    <input type="text" id="sylius-sales-order-total" class="disabled input-small" disabled="disabled" value="0.00"/><span class="add-on">&euro;</span>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</fieldset>
+{{ form_widget(form._token) }}

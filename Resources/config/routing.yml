@@ -1,0 +1,6 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sales_order:
+    prefix: /orders
+    resource: @SyliusSalesBundle/Resources/config/routing/order.yml
