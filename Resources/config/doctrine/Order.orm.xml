@@ -11,6 +11,8 @@
         <field name="itemsTotal" column="items_total" type="integer" />
         <field name="adjustmentsTotal" column="adjustments_total" type="integer" />
         <field name="total" column="total" type="integer" />
+        <field name="confirmed" column="confirmed" type="boolean" />
+        <field name="confirmationToken" column="confirmation_token" type="string" nullable="true" />
         <field name="createdAt" column="created_at" type="datetime">
             <gedmo:timestampable on="create"/>
         </field>

@@ -9,6 +9,8 @@
         <parameter key="sylius.builder.order.class">Sylius\Bundle\SalesBundle\Builder\OrderBuilder</parameter>
         <parameter key="sylius.generator.order_number.class">Sylius\Bundle\SalesBundle\Generator\OrderNumberGenerator</parameter>
         <parameter key="sylius.listener.order_number.class">Sylius\Bundle\SalesBundle\EventListener\OrderNumberListener</parameter>
+        <parameter key="sylius.listener.order_confirmation.class">Sylius\Bundle\SalesBundle\EventListener\OrderConfirmationListener</parameter>
+        <parameter key="sylius.mailer.sales.class">Sylius\Bundle\SalesBundle\Mailer\Mailer</parameter>
     </parameters>
 
     <services>
@@ -52,6 +54,21 @@
         <service id="sylius.listener.order_number" class="%sylius.listener.order_number.class%">
             <argument type="service" id="sylius.generator.order_number" />
             <tag name="kernel.event_listener" event="sylius.order.pre_create" method="generateOrderNumber" priority="10" />
+        </service>
+        <service id="sylius.listener.order_confirmation" class="%sylius.listener.order_confirmation.class%">
+            <argument type="service" id="sylius.mailer.sales" />
+            <argument>%sylius.order_confirmation.enabled%</argument>
+            <tag name="kernel.event_listener" event="sylius.order.pre_create" method="sendOrderConfirmation" />
+        </service>
+
+        <service id="sylius.mailer.sales" class="%sylius.mailer.sales.class%" public="false">
+            <argument type="service" id="mailer" />
+            <argument type="service" id="router" />
+            <argument type="service" id="templating" />
+            <argument type="collection">
+                <argument key="confirmation.template">%sylius.order_confirmation.template%</argument>
+                <argument key="confirmation.from_email">%sylius.order_confirmation.from_email%</argument>
+            </argument>
         </service>
     </services>
 </container>

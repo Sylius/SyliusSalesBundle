@@ -49,6 +49,7 @@ class SyliusSalesExtension extends Extension
 
         $this->mapClassParameters($config['classes'], $container);
         $this->mapValidationGroupParameters($config['validation_groups'], $container);
+        $this->mapOrderConfirmationParameters($config['confirmation'], $container);
 
         $loader->load('services.xml');
     }
@@ -79,6 +80,19 @@ class SyliusSalesExtension extends Extension
     {
         foreach ($validationGroups as $model => $groups) {
             $container->setParameter(sprintf('sylius.validation_group.%s', $model), $groups);
+        }
+    }
+
+    /**
+     * Remap order confirmation parameters.
+     *
+     * @param array            $classes
+     * @param ContainerBuilder $container
+     */
+    protected function mapOrderConfirmationParameters(array $validationGroups, ContainerBuilder $container)
+    {
+        foreach ($validationGroups as $model => $groups) {
+            $container->setParameter(sprintf('sylius.order_confirmation.%s', $model), $groups);
         }
     }
 }

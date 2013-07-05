@@ -23,11 +23,11 @@ class OrderController extends ResourceController
     /**
      * Confirms order.
      *
-     * @param string $confirmationToken
+     * @param string $token
      */
-    public function confirmAction($confirmationToken)
+    public function confirmAction($token)
     {
-        $order = $this->findOr404(array('confirmationToken' => $confirmationToken));
+        $order = $this->findOr404(array('confirmationToken' => $token));
 
         $order->setConfirmed(true);
         $this->persistAndFlush($order);

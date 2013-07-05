@@ -1,0 +1,7 @@
+{% block subject %}
+{{ 'confirmation.email.subject'|trans }}
+{% endblock %}
+{% block body_text %}
+{{ 'confirmation.email.message'|trans({'%confirmationUrl%': confirmationUrl}) }}
+{% endblock %}
+{% block body_html %}{% endblock %}
