@@ -29,7 +29,7 @@ class OrderRepository extends EntityRepository implements OrderRepositoryInterfa
         $queryBuilder = $this->getQueryBuilder();
 
         return $queryBuilder
-            ->andWhere($queryBuilder->expr()->isNotNull('o.completedAt'))
+            ->andWhere($queryBuilder->expr()->isNotNull('o.number'))
             ->setMaxResults($amount)
             ->orderBy('o.id', 'desc')
             ->getQuery()
